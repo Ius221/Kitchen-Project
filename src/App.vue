@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h1>Home Kitchen Recipe</h1>
-    <select-things />
+    <template v-if="!isNotFoundRoute">
+      <h1>Home Kitchen Recipe</h1>
+      <select-things />
+    </template>
     <router-view />
   </div>
 </template>
@@ -10,6 +12,11 @@
 import SelectThings from "./nav/SelectThings.vue";
 export default {
   components: { SelectThings },
+  computed: {
+    isNotFoundRoute() {
+      return this.$route.params.notFound !== undefined;
+    },
+  },
 };
 </script>
 
@@ -39,7 +46,6 @@ h1 {
   color: whitesmoke;
   font-size: 48px;
   text-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
-
   padding: 1rem 2rem;
   position: sticky;
   top: 0;

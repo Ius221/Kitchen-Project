@@ -9,7 +9,7 @@ import AddFood from './components/addSomething/AddFood.vue';
 import ShowFood from './components/food/ShowFood.vue';
 import AddIngredient from './components/addSomething/AddIngredient.vue';
 import ShowIngredients from './components/ingredients/ShowIngredients.vue';
-
+import PageError from './components/notFound/PageError.vue';
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,6 +19,7 @@ const router = createRouter({
         { path: '/addIngredient', component: AddIngredient },
         { path: '/recipe', component: ShowFood },
         { path: '/ingredient', component: ShowIngredients },
+        { path: '/:notFound(.*)', component: PageError },
 
     ]
 });
